@@ -9,14 +9,24 @@ export default class GetImages {
 		this.searchQuery = "";
 		this.page = 1;
 		this.images = [];
+		this.totalHits = 0;
 	}
 
 	async getImages() {
 		const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation =horizontal&safesearch =true&page=${this.page}&per_page=40`;
 		try {
 			const { data } = await axios(url);
-			console.log("Дані запита", data.hits);
 			return (this.images = data.hits);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async getTotalHits() {
+		const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation =horizontal&safesearch =true&page=${this.page}&per_page=40`;
+		try {
+			const { data } = await axios(url);
+			return (this.totalHits = data.totalHits);
 		} catch (error) {
 			console.log(error);
 		}

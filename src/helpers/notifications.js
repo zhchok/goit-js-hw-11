@@ -7,6 +7,10 @@ function checkQueryHitsLength(query) {
 	}
 }
 
+function totalHitsNotification(totalHits) {
+	Notify.success(`Hooray! We found ${totalHits} images. `);
+}
+
 function checkEndHits(hits) {
 	if (hits.length <= 20) {
 		MakeEndHitsNotification();
@@ -21,4 +25,10 @@ function MakeBadSearchQueryNotification() {
 	Notify.failure("Sorry, there are no images matching your search query. Please try again.");
 }
 
-export { checkQueryHitsLength, MakeEndHitsNotification, MakeBadSearchQueryNotification, checkEndHits };
+export {
+	checkQueryHitsLength,
+	MakeEndHitsNotification,
+	MakeBadSearchQueryNotification,
+	checkEndHits,
+	totalHitsNotification,
+};

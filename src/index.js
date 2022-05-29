@@ -1,6 +1,11 @@
 import { refs } from "./refs";
 import GetImages from "./api";
-import { checkQueryHitsLength, MakeBadSearchQueryNotification, checkEndHits } from "./helpers/notifications";
+import {
+	checkQueryHitsLength,
+	MakeBadSearchQueryNotification,
+	checkEndHits,
+	totalHitsNotification,
+} from "./helpers/notifications";
 import { show, hide } from "./components/loadMoreBtn";
 import { clearGallery, drawTemplate } from ".//helpers/draw";
 
@@ -21,6 +26,8 @@ async function onInputSearch(e) {
 	API.resetPage();
 	clearGallery();
 	await API.getImages(API.query);
+	await API.getTotalHits(API.query);
+	totalHitsNotification(API.totalHits);
 	checkQueryHitsLength(API.query);
 	drawTemplate(API.images);
 	show();

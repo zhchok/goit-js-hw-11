@@ -13,7 +13,7 @@ img {
 	width: 100vw;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	background: linear-gradient(180deg, rgb(15, 107, 213) 45%, rgb(218, 218, 17) 55%);
+	background: linear-gradient(180deg, rgb(23, 121, 234) 50%, rgb(243, 243, 19) 50%);
 	z-index: 10;
 }
 .search-form {
