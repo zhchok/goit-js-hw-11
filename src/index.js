@@ -32,3 +32,4 @@ async function loadMore() {
 	await API.getImages(API.query);
 	drawTemplate(API.images);
 }
+//
