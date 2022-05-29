@@ -8,6 +8,7 @@ import {
 } from "./helpers/notifications";
 import { show, hide } from "./components/loadMoreBtn";
 import { clearGallery, drawTemplate } from ".//helpers/draw";
+import { smoothScroll } from ".//components/smoothScroll";
 
 const API = new GetImages();
 
@@ -38,5 +39,5 @@ async function loadMore() {
 	API.incrementPage();
 	await API.getImages(API.query);
 	drawTemplate(API.images);
+	smoothScroll();
 }
-//
